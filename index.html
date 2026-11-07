@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160f2b">
+<title>Happy Birthday, Dinesh Kumar! 🎂</title>
+<style>
+:root{--night:#160f2b;--plum:#28163e;--pink:#ff8db4;--gold:#ffd98a;--cream:#fff6ed;--muted:#d9c9dc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--cream);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(ellipse at 50% 0%,#492653 0%,#241633 45%,#100c20 100%);overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+.screen{min-height:100svh;display:none;align-items:center;justify-content:center;padding:28px 18px;position:relative;text-align:center;overflow:hidden}
+.screen.active{display:flex;animation:fade .8s ease both}
+.panel{width:min(720px,100%);position:relative;z-index:2;padding:clamp(24px,5vw,54px);border:1px solid #ffffff24;border-radius:28px;background:linear-gradient(145deg,#ffffff12,#ffffff06);box-shadow:0 25px 90px #0005;backdrop-filter:blur(12px)}
+.eyebrow{font:600 11px/1.4 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h1,h2,p{margin-top:0}
+h1{font-size:clamp(42px,9vw,82px);line-height:.98;margin:16px 0;color:#fff3e9;text-shadow:0 5px 35px #ff8db455}
+h2{font-size:clamp(30px,6vw,48px);margin:10px 0 18px}
+p{font:16px/1.75 Arial,sans-serif;color:var(--muted)}
+.script{font-style:italic;color:var(--pink)}
+button.primary{border:0;border-radius:999px;padding:15px 27px;color:#29142e;background:linear-gradient(110deg,#ffe1a1,#ff9fbd);font:700 14px Arial,sans-serif;letter-spacing:.04em;box-shadow:0 10px 30px #ff9fbd30;transition:transform .2s,box-shadow .2s}
+button.primary:hover{transform:translateY(-3px);box-shadow:0 14px 36px #ff9fbd55}
+button.ghost{border:1px solid #ffffff50;border-radius:999px;padding:12px 20px;color:#fff;background:#ffffff0c;font:13px Arial,sans-serif}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.sparkle{position:absolute;color:#ffe4a6;opacity:.8;animation:twinkle 2.4s infinite alternate}
+.s1{top:12%;left:12%;font-size:25px}.s2{top:20%;right:13%;font-size:18px;animation-delay:.8s}.s3{bottom:16%;left:18%;font-size:16px;animation-delay:1.2s}.s4{bottom:13%;right:16%;font-size:28px;animation-delay:.4s}
+.gift{font-size:clamp(76px,16vw,130px);filter:drop-shadow(0 12px 20px #0005);animation:bob 2s ease-in-out infinite}
+.cake{font-size:clamp(90px,18vw,150px);display:inline-block;filter:drop-shadow(0 12px 20px #0005);animation:bob 2.5s ease-in-out infinite}
+.candle{font-size:24px}
+.balloon-area{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:28px auto;max-width:520px}
+.balloon{border:0;background:transparent;font-size:clamp(38px,9vw,62px);padding:8px 0;animation:float 2.8s ease-in-out infinite;transition:transform .2s}
+.balloon:nth-child(even){animation-delay:.7s}.balloon:nth-child(3n){animation-delay:1.2s}
+.balloon:active{transform:scale(.8)}
+.balloon.popped{visibility:hidden;animation:none}
+.message-card{padding:25px;border-radius:20px;background:#ffffff0d;border:1px solid #ffffff20;text-align:left;margin-top:20px}
+.message-card p{white-space:pre-line}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}
+.photo{margin:0;border-radius:16px;overflow:hidden;background:#ffffff12;border:1px solid #ffffff30;box-shadow:0 8px 24px #0003}
+.photo button{display:block;width:100%;padding:0;border:0;background:none;color:inherit}
+.photo img{display:block;width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .35s}
+.photo button:hover img{transform:scale(1.035)}
+.photo figcaption{padding:9px 5px 11px;color:#f9dfd0;font:11px Arial,sans-serif;letter-spacing:.04em}
+#lightbox{position:fixed;inset:0;background:#080510ed;z-index:20;display:none;align-items:center;justify-content:center;padding:18px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:88svh;object-fit:contain;border-radius:12px}
+#lightbox button{position:absolute;top:18px;right:18px;border:1px solid #ffffff66;background:#ffffff20;color:white;border-radius:50%;width:42px;height:42px;font-size:24px}
+.letter{font:italic clamp(17px,3.5vw,21px)/1.8 Georgia,serif;color:#fff0e8;white-space:pre-line;text-align:left}
+.footer{font:11px Arial,sans-serif;color:#bbaac4;margin-top:25px;letter-spacing:.08em}
+.confetti{position:fixed;top:-20px;width:8px;height:13px;z-index:9;pointer-events:none;animation:fall linear forwards}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-13px) rotate(5deg)}}
+@keyframes twinkle{from{transform:scale(.7);opacity:.35}to{transform:scale(1.2);opacity:1}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.8}}
+@media(max-width:480px){.panel{padding:28px 20px}.balloon-area{gap:2px}.photo-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<section class="screen active" id="welcome">
+  <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span><span class="sparkle s3">✦</span><span class="sparkle s4">✧</span>
+  <div class="panel">
+    <div class="eyebrow">A little surprise, made with love</div>
+    <div class="gift">🎁</div>
+    <p class="script">Someone has something special for you…</p>
+    <h1>Hey, Dinesh!</h1>
+    <p>A little celebration is waiting just for you.<br>Ready to unwrap your birthday surprise?</p>
+    <div class="actions"><button class="primary" onclick="go('cake');confetti()">Unwrap your surprise ✨</button></div>
+    <div class="footer">MADE ESPECIALLY FOR DINESH KUMAR</div>
+  </div>
+</section>
+
+<section class="screen" id="cake">
+  <div class="panel">
+    <div class="eyebrow">First things first</div>
+    <h2>Make a birthday wish 🎂</h2>
+    <div class="cake">🎂</div>
+    <p>Close your eyes, make a wish, and blow out the candles!</p>
+    <div class="actions"><button class="primary" onclick="document.getElementById('flame').textContent='✨';document.getElementById('cakeNote').textContent='May your wish find its way to you!';confetti()">Blow out the candles</button></div>
+    <p id="cakeNote" class="script" style="margin-top:18px">Your special day starts now…</p>
+    <div class="actions"><button class="ghost" onclick="go('balloons')">Continue →</button></div>
+  </div>
+</section>
+
+<section class="screen" id="balloons">
+  <div class="panel">
+    <div class="eyebrow">A sky full of good wishes</div>
+    <h2>Pop the balloons! 🎈</h2>
+    <p>Each balloon carries a little wish for your year ahead.</p>
+    <div class="balloon-area" id="balloonsArea">
+      <button class="balloon" onclick="pop(this,'Happiness')">🎈</button><button class="balloon" onclick="pop(this,'Success')">🎈</button><button class="balloon" onclick="pop(this,'Good health')">🎈</button><button class="balloon" onclick="pop(this,'Laughter')">🎈</button><button class="balloon" onclick="pop(this,'Beautiful memories')">🎈</button>
+    </div>
+    <p id="wishText" class="script">Tap every balloon to reveal your wishes.</p>
+    <div class="actions"><button class="ghost" onclick="go('memories')">Continue →</button></div>
+  </div>
+</section>
+
+<section class="screen" id="memories">
+  <div class="panel">
+    <div class="eyebrow">A little walk down memory lane</div>
+    <h2>Moments worth keeping 📸</h2>
+    <p>Every year brings new stories, new smiles and memories to treasure. May this year give you plenty more.</p>
+    <div class="photo-grid">
+      <figure class="photo"><button onclick="openPhoto('assets/memory-1.png','Birthday memories')"><img src="assets/memory-1.png" alt="Birthday portrait collage" loading="lazy"></button><figcaption>Birthday memories ✨</figcaption></figure>
+      <figure class="photo"><button onclick="openPhoto('assets/memory-2.jpg','Birthday portrait')"><img src="assets/memory-2.jpg" alt="Birthday portrait" loading="lazy"></button><figcaption>Keep shining 🌟</figcaption></figure>
+      <figure class="photo"><button onclick="openPhoto('assets/memory-3.png','Family moments')"><img src="assets/memory-3.png" alt="Family birthday collage" loading="lazy"></button><figcaption>Family moments 💛</figcaption></figure>
+      <figure class="photo"><button onclick="openPhoto('assets/memory-4.jpg','A special birthday wish')"><img src="assets/memory-4.jpg" alt="Personal birthday wish" loading="lazy"></button><figcaption>Special wishes 💌</figcaption></figure>
+      <figure class="photo"><button onclick="openPhoto('assets/memory-5.jpg','Friendship memories')"><img src="assets/memory-5.jpg" alt="Friendship birthday photo" loading="lazy"></button><figcaption>Friendship forever 🥳</figcaption></figure>
+      <figure class="photo"><button onclick="openPhoto('assets/memory-6.png','Birthday celebration')"><img src="assets/memory-6.png" alt="Birthday celebration portrait" loading="lazy"></button><figcaption>A fantastic year ahead 🎂</figcaption></figure>
+    </div>
+    <p class="script">The best moments are still ahead of you.</p>
+    <div class="actions"><button class="ghost" onclick="go('letter')">One last thing →</button></div>
+  </div>
+</section>
+
+<section class="screen" id="letter">
+  <div class="panel">
+    <div class="eyebrow">A birthday letter for you</div>
+    <h2>Dear Dinesh Kumar, 💌</h2>
+    <div class="message-card"><div class="letter">Happy Birthday, Dinesh! 🥳
+
+May your life always be filled with happiness, success, good health and endless blessings. May all your dreams come true and every step you take lead you towards something wonderful.
+
+Keep smiling, stay strong, enjoy every moment and never stop believing in yourself. Wishing you an amazing year ahead, filled with unforgettable memories and beautiful surprises.
+
+Have the happiest birthday! 🎂💛
+
+With warm wishes,
+Your Friend</div></div>
+    <div class="actions"><button class="primary" onclick="go('final');confetti()">Celebrate! 🎉</button></div>
+  </div>
+</section>
+
+<section class="screen" id="final">
+  <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span><span class="sparkle s3">✦</span><span class="sparkle s4">✧</span>
+  <div class="panel">
+    <div class="eyebrow">Today is all about you</div>
+    <div style="font-size:58px">🎊🎂🎊</div>
+    <h1>Happy Birthday<br><span class="script">Dinesh Kumar!</span></h1>
+    <p>May this new chapter be your happiest one yet.<br>Keep shining, keep smiling, and keep being amazing!</p>
+    <div style="font-size:42px;margin:22px">🥳 💛 🎉</div>
+    <button class="primary" onclick="confetti()">Celebrate once more ✨</button>
+    <div class="footer">A BIRTHDAY SURPRISE MADE JUST FOR YOU</div>
+  </div>
+</section>
+<script>
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+const wishes=['Happiness','Success','Good health','Laughter','Beautiful memories'];
+let popped=0;
+function pop(el,wish){if(el.classList.contains('popped'))return;el.classList.add('popped');popped++;document.getElementById('wishText').textContent='A year filled with '+wish.toLowerCase()+'! 💛';if(popped===5)document.getElementById('wishText').textContent='Five wishes for you — and a thousand more! 💛';}
+function confetti(){for(let i=0;i<65;i++){let c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=['#ff8db4','#ffd98a','#a8e6cf','#c9b6ff','#fff1c1'][Math.floor(Math.random()*5)];c.style.animationDuration=(2.5+Math.random()*3)+'s';c.style.animationDelay=(Math.random()*.8)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),6500)}}
+</script>
+<div id="lightbox" onclick="closePhoto()"><button aria-label="Close photo" onclick="event.stopPropagation();closePhoto()">×</button><img id="lightboxImage" src="" alt="Expanded birthday memory" onclick="event.stopPropagation()"></div>
+<script>
+function openPhoto(src, alt){const box=document.getElementById('lightbox');const img=document.getElementById('lightboxImage');img.src=src;img.alt=alt;box.classList.add('open')}
+function closePhoto(){document.getElementById('lightbox').classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePhoto()});
+</script>
+</body>
+</html>
